@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{4B24C013-7C48-877B-7530-76E109D0076C}</ProjectGuid>
+	<ProjectGuid>{E547F8E6-A7B0-3011-00FB-282DCFFD53E8}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\AttackEnemyOnClicked.cs" />
      <Compile Include="Assets\Scripts\AttackMoveUnitsOnAClick.cs" />
      <Compile Include="Assets\Scripts\BasicUnitMovement.cs" />
+     <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\DamageEnemyOnCollision.cs" />
      <Compile Include="Assets\Scripts\DestroyBullet.cs" />
      <Compile Include="Assets\Scripts\DetectClicksAndTouches.cs" />
