@@ -14,7 +14,7 @@ public class UnitHealthBar : MonoBehaviour {
 	void Update () {
 		float curHealth = transform.parent.GetComponent<UnitHealth>().curHealth;
 		float maxHealth = transform.parent.GetComponent<UnitHealth>().maxHealth;
-		Vector3 newScale = new Vector3(curHealth / maxHealth, 0.03f, 0.2f);
+		Vector3 newScale = new Vector3(curHealth / maxHealth, 1.0f, 1.0f);
 		gameObject.transform.localScale = newScale;
 	}
 }
