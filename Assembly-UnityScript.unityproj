@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{4B24C013-7C48-877B-7530-76E109D0076C}</ProjectGuid>
+	<ProjectGuid>{A2830E56-5648-1C32-00EA-EB39E87CDDB0}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,24 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AttackEnemyOnClicked.cs" />
-     <Compile Include="Assets\Scripts\AttackMoveUnitsOnAClick.cs" />
-     <Compile Include="Assets\Scripts\BasicUnitMovement.cs" />
-     <Compile Include="Assets\Scripts\DamageEnemyOnCollision.cs" />
-     <Compile Include="Assets\Scripts\DestroyBullet.cs" />
-     <Compile Include="Assets\Scripts\DetectClicksAndTouches.cs" />
-     <Compile Include="Assets\Scripts\DragSelect.cs" />
-     <Compile Include="Assets\Scripts\MoveSelectedUnitsOnRightClick.cs" />
-     <Compile Include="Assets\Scripts\ParticleEffectOnMoveCommand.cs" />
-     <Compile Include="Assets\Scripts\PlayParticleOnMoveClick.cs" />
-     <Compile Include="Assets\Scripts\SelectPlayerUnitOnClicked.cs" />
-     <Compile Include="Assets\Scripts\SelectPlayerUnitOnTrigger.cs" />
-     <Compile Include="Assets\Scripts\ShootAtUnitsInRange.cs" />
-     <Compile Include="Assets\Scripts\ShowIfSelected.cs" />
-     <Compile Include="Assets\Scripts\ShowOnAttackMove.cs" />
-     <Compile Include="Assets\Scripts\UnitHealth.cs" />
-     <Compile Include="Assets\Scripts\UnitHealthBar.cs" />
-     <Compile Include="Assets\Scripts\UnitManager.cs" />
+     <Compile Include="Assets\Scripts\CameraMovement.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
