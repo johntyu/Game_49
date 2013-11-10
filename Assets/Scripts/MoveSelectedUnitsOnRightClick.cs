@@ -10,6 +10,7 @@ public class MoveSelectedUnitsOnRightClick : MonoBehaviour {
 	}
 	
 	void RightClicked(Vector3 clickPosition){
+		clickPosition.y = 0.0f;
 		foreach(GameObject unit in unitManager.GetSelectedUnits()){
 			unit.SendMessage("MoveOrder", clickPosition, SendMessageOptions.DontRequireReceiver);	
 		}

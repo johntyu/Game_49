@@ -12,12 +12,17 @@ public class BasicUnitMovement : MonoBehaviour {
 	private float t = 0.0f;
 	private bool onGoal;
 	
+	public float stopTime = 0.0f;
+	public float stopTimeInc = 0.0f;
+	
 	public void AttackMoveOrder(Vector3 newGoal){
 		goal = newGoal;
 		t = 0.0f;
 		onGoal = false;
 		attackMoveOrder = true;
 		gameObject.SendMessage("setEnemySelectedWithClick", false);
+		stopTimeInc = 0.0f;
+		stopTime = (goal - transform.position).magnitude / 4.0f;
 	}
 	
 	public void MoveOrder(Vector3 newGoal){
@@ -26,6 +31,8 @@ public class BasicUnitMovement : MonoBehaviour {
 		onGoal = false;
 		attackMoveOrder = false;
 		gameObject.SendMessage("setEnemySelectedWithClick", false);
+		stopTimeInc = 0.0f;
+		stopTime = (goal - transform.position).magnitude / 4.0f;
 	}
 	
 	public void EnemyMoveOrder(Vector3 newGoal){
@@ -34,6 +41,8 @@ public class BasicUnitMovement : MonoBehaviour {
 		onGoal = false;
 		attackMoveOrder = false;
 		gameObject.SendMessage("setEnemySelectedWithClick", true);
+		stopTimeInc = 0.0f;
+		stopTime = (goal - transform.position).magnitude / 4.0f;
 	}
 	
 	public void StopMoveOrder(){
@@ -47,7 +56,7 @@ public class BasicUnitMovement : MonoBehaviour {
 	}
 	
 	void Update(){
-	
+		
 		if(attackMoveOrder){
 			GameObject targetEnemy = transform.GetComponent<ShootAtUnitsInRange>().targetEnemy;
 			if(targetEnemy != null){
@@ -55,13 +64,15 @@ public class BasicUnitMovement : MonoBehaviour {
 			}else{
 				attacking = false;
 			}
-			
+				
 			if(!attacking){
+				stopTimeInc += Time.deltaTime;
 				transform.position += (goal - transform.position).normalized * moveSpeed * Time.deltaTime;
 			}
 		}
 		
 		if(!attackMoveOrder){
+			stopTimeInc += Time.deltaTime;
 			transform.position += (goal - transform.position).normalized * moveSpeed * Time.deltaTime;
 		}
 			
@@ -71,6 +82,10 @@ public class BasicUnitMovement : MonoBehaviour {
 					t += Time.deltaTime;
 				}
 			}
+		}
+		
+		if(stopTimeInc > stopTime){
+			StopMoveOrder();
 		}
 		
 		if(t > (0.5f/moveSpeed)){
