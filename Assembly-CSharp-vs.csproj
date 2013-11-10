@@ -44,15 +44,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AttackEnemyOnClicked.cs" />
+     <Compile Include="Assets\AttackMoveUnitsOnAClick.cs" />
      <Compile Include="Assets\BasicUnitMovement.cs" />
-     <Compile Include="Assets\DeselectPlayerUnitsOnClicked.cs" />
+     <Compile Include="Assets\DamageEnemyOnCollision.cs" />
+     <Compile Include="Assets\DestroyBullet.cs" />
      <Compile Include="Assets\DetectClicksAndTouches.cs" />
+     <Compile Include="Assets\DragSelect.cs" />
      <Compile Include="Assets\MoveSelectedUnitsOnRightClick.cs" />
      <Compile Include="Assets\ParticleEffectOnMoveCommand.cs" />
      <Compile Include="Assets\PlayParticleOnMoveClick.cs" />
      <Compile Include="Assets\SelectPlayerUnitOnClicked.cs" />
+     <Compile Include="Assets\SelectPlayerUnitOnTrigger.cs" />
      <Compile Include="Assets\ShootAtUnitsInRange.cs" />
      <Compile Include="Assets\ShowIfSelected.cs" />
+     <Compile Include="Assets\ShowOnAttackMove.cs" />
+     <Compile Include="Assets\UnitHealth.cs" />
+     <Compile Include="Assets\UnitHealthBar.cs" />
      <Compile Include="Assets\UnitManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

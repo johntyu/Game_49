@@ -11,6 +11,10 @@ public class UnitManager : MonoBehaviour {
 		selectedUnits.Clear();
 	}
 	
+	void Update(){
+		//Debug.Log (selectedUnits.Count);
+	}
+	
 	public bool IsSelected(GameObject unit){
 		if(selectedUnits.Contains(unit)){
 			return true;
@@ -28,11 +32,23 @@ public class UnitManager : MonoBehaviour {
 		selectedUnits.Add(unit);
 	}
 	
-	public void DeselectUnits(){
+	public void DeselectUnit(GameObject unit){
+		selectedUnits.Remove(unit);
+	}
+	
+	public void DeselectAllUnits(){
 		selectedUnits.Clear();
 	}
 	
 	public List<GameObject> GetSelectedUnits(){
 		return selectedUnits;
+	}
+	
+	public bool UnitsAreSelected(){
+		if(selectedUnits.Count > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
