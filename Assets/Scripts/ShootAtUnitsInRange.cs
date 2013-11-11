@@ -65,12 +65,25 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 			if(instance.rigidbody){
 				instance.rigidbody.AddForce((targetEnemy.transform.position - transform.position).normalized * speed / 50.0f, ForceMode.VelocityChange);
 			}
+			
+			//get turret model as a game object
+			GameObject turret = null;
+			foreach (Transform child in transform.GetComponentsInChildren<Transform>()) {
+				if(child.name == "Turret"){
+					turret = child.gameObject;
+				}
+			}
+
+			//rotate turret model to look at where it is firing
 			float rotationVal = Vector3.Angle(new Vector3(0.0f, 0.0f, 1.0f), (targetEnemy.transform.position - transform.position));
-			//Debug.Log (Vector3.Angle(new Vector3(0.0f, 0.0f, 1.0f), (targetEnemy.transform.position - transform.position)));
 			if(targetEnemy.transform.position.x < transform.position.x){
-				transform.rotation = Quaternion.Euler(0, -1*rotationVal, 0);
+				if(turret != null){
+					turret.transform.rotation = Quaternion.Euler(0, -1*rotationVal, 0);
+				}
 			}else{
-				transform.rotation = Quaternion.Euler(0, rotationVal, 0);
+				if(turret != null){
+					turret.transform.rotation = Quaternion.Euler(0, rotationVal, 0);
+				}
 			}
 		}		
 	}
