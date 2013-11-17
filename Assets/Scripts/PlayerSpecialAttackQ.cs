@@ -14,5 +14,6 @@ public class PlayerSpecialAttackQ : MonoBehaviour {
 	}
 
 	void SpecialAttack_Q() {
+		
 	}
 }
