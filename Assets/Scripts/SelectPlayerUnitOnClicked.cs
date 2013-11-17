@@ -4,32 +4,21 @@ using System.Collections;
 public class SelectPlayerUnitOnClicked : MonoBehaviour {
 
 	private UnitManager unitManager;
-	private float doubleClickStart;
 	
 	void Start(){
 		unitManager = GameObject.FindGameObjectWithTag("PlayerUnitManager").GetComponent<UnitManager>();
-		doubleClickStart = 0.0f;
 	}
 	
 	void Update(){
-		doubleClickStart += Time.deltaTime;
+		
 	}
 	
 	void Clicked(){
-		if(doubleClickStart < 0.3f){
-			DoubleClicked();
+		if(Input.GetKey (KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)){
+			unitManager.SelectAdditionalUnit(gameObject);
 		}else{
-			if(Input.GetKey (KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)){
-				unitManager.SelectAdditionalUnit(gameObject);
-			}else{
-				unitManager.SelectSingleUnit(gameObject);
-			}
+			unitManager.SelectSingleUnit(gameObject);
 		}
-		doubleClickStart = 0.0f;
-	}
-	
-	void DoubleClicked(){
-		unitManager.SelectAllUnitsOfType(gameObject);
 	}
 	
 }

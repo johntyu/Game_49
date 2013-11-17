@@ -3,69 +3,94 @@ using System.Collections;
 
 public class BasicUnitMovement : MonoBehaviour {
 	
-	private NavMeshAgent navMeshAgent;
-	private UnitManager unitManager;
-	
 	public float moveSpeed = 5.0f;
+	public float goalRadius = 0.01f;
 	public bool attackMoveOrder = false;
 	public bool attacking = false;
 	
-	private Vector3 currentGoal;
-	private bool onGoal = true;
-	private float stopTimeInc = 0.0f;
-	private float stopTime = 1.0f;
-
-	void Start(){
-		navMeshAgent = GetComponent<NavMeshAgent>();
-		unitManager = GameObject.FindGameObjectWithTag("PlayerUnitManager").GetComponent<UnitManager>();
-	}
+	private Vector3 goal;
+	private float t = 0.0f;
+	private bool onGoal;
+	
+	public float stopTime = 0.0f;
+	public float stopTimeInc = 0.0f;
 	
 	public void AttackMoveOrder(Vector3 newGoal){
-		stopTimeInc = 0.0f;
-		currentGoal = newGoal;
+		goal = newGoal;
+		t = 0.0f;
 		onGoal = false;
-		navMeshAgent.SetDestination(newGoal);
 		attackMoveOrder = true;
 		gameObject.SendMessage("setEnemySelectedWithClick", false);
+		stopTimeInc = 0.0f;
+		stopTime = (goal - transform.position).magnitude / 4.0f;
 	}
 	
 	public void MoveOrder(Vector3 newGoal){
-		stopTimeInc = 0.0f;
-		currentGoal = newGoal;
+		goal = newGoal;
+		t = 0.0f;
 		onGoal = false;
-		navMeshAgent.SetDestination(newGoal);
 		attackMoveOrder = false;
 		gameObject.SendMessage("setEnemySelectedWithClick", false);
+		stopTimeInc = 0.0f;
+		stopTime = (goal - transform.position).magnitude / 4.0f;
 	}
 	
 	public void EnemyMoveOrder(Vector3 newGoal){
-		stopTimeInc = 0.0f;
-		currentGoal = newGoal;
+		goal = newGoal;
+		t = 0.0f;
 		onGoal = false;
-		navMeshAgent.SetDestination(newGoal);
 		attackMoveOrder = false;
 		gameObject.SendMessage("setEnemySelectedWithClick", true);
+		stopTimeInc = 0.0f;
+		stopTime = (goal - transform.position).magnitude / 4.0f;
 	}
 	
 	public void StopMoveOrder(){
-		currentGoal = transform.position;
+		goal = transform.position;
 		onGoal = true;
-		navMeshAgent.SetDestination(transform.position);
-		attackMoveOrder = false;
 	}
 	
-	void FixedUpdate(){
-		GameObject targetEnemy = transform.GetComponent<ShootAtUnitsInRange>().targetEnemy;
-		if(targetEnemy != null){
-			attacking = true;
-		}else{
-			attacking = false;
+	void Start(){
+		goal = transform.position;
+		onGoal = true;
+	}
+	
+	void Update(){
+		
+		if(attackMoveOrder){
+			GameObject targetEnemy = transform.GetComponent<ShootAtUnitsInRange>().targetEnemy;
+			if(targetEnemy != null){
+				attacking = true;
+			}else{
+				attacking = false;
+			}
+				
+			if(!attacking){
+				stopTimeInc += Time.deltaTime;
+				transform.position += (goal - transform.position).normalized * moveSpeed * Time.deltaTime;
+			}
+		}
+		
+		if(!attackMoveOrder){
+			stopTimeInc += Time.deltaTime;
+			transform.position += (goal - transform.position).normalized * moveSpeed * Time.deltaTime;
 		}
 			
-		if(attacking && attackMoveOrder){
-			navMeshAgent.speed = 0;
-		}else{
-			navMeshAgent.speed = moveSpeed;
+		if(!onGoal){
+			foreach(Collider obj in Physics.OverlapSphere(goal, goalRadius)){
+				if(obj.gameObject == gameObject){
+					t += Time.deltaTime;
+				}
+			}
+		}
+		
+		if(stopTimeInc > stopTime){
+			StopMoveOrder();
+		}
+		
+		if(t > (0.5f/moveSpeed)){
+			transform.position = goal;
+			onGoal = true;
 		}
 	}
 	
