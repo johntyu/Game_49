@@ -8,9 +8,14 @@ public class DamageEnemyOnCollision : MonoBehaviour {
 	public LayerMask mask;
 	
 	private GameObject targetEnemy;
+	private GameObject shooter;
 	
 	void Start () {
 		
+	}
+
+	void setShooter(GameObject shooter_) {
+		shooter = shooter_;
 	}
 	
 	void Update () {
@@ -18,6 +23,7 @@ public class DamageEnemyOnCollision : MonoBehaviour {
 		if(enemyArray.Length > 0){
 			targetEnemy = enemyArray[0].gameObject;
 			targetEnemy.SendMessage("BulletCollision", bulletDamage);
+			targetEnemy.SendMessage("setEnemyWhenAttacked", shooter);
 			Object.Destroy(gameObject);
 		}
 	}

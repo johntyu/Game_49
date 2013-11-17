@@ -45,8 +45,13 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 		}
 		
 		//if enemy is out of range, stop firing
-		if(!enemyInRange){
-			targetEnemy = null;
+		//if(!enemyInRange){
+		//	targetEnemy = null;
+		//}
+
+		// if enemy is out of range, go towards enemy
+		if (targetEnemy != null && !enemyInRange) {
+			gameObject.SendMessage("EnemyMoveOrder", targetEnemy.transform.position, SendMessageOptions.DontRequireReceiver);
 		}
 		
 		//if no target enemy, get the first one in range
@@ -65,6 +70,7 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 			if(instance.rigidbody){
 				instance.rigidbody.AddForce((targetEnemy.transform.position - transform.position).normalized * speed / 50.0f, ForceMode.VelocityChange);
 			}
+			instance.SendMessage("setShooter", gameObject);
 			
 			//get turret model as a game object
 			GameObject turret = null;
@@ -95,5 +101,11 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 	void SetSelectedEnemyWithClick(GameObject enemy){
 		selectedEnemy = enemy;
 		gameObject.SendMessage("EnemyMoveOrder", enemy.transform.position);
+	}
+
+	void setEnemyWhenAttacked(GameObject enemy) {
+		if (selectedEnemy == null && targetEnemy == null) {
+			targetEnemy = enemy;
+		}
 	}
 }
