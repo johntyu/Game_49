@@ -109,6 +109,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!23 &2300002
 Renderer:
   m_ObjectHideFlags: 1
@@ -121,12 +124,15 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: c40b54bebf61f774d8d2d5a237e632e4, type: 2}
+  - {fileID: 2100000, guid: 9223ffbdb0463fe4ca5c84c5308983cf, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!23 &2300004
 Renderer:
   m_ObjectHideFlags: 1
@@ -145,6 +151,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -202,12 +211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20e8ebbdf373491cb9cb58610564f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 1d18a7eb461f88447b52f4d506a51335, type: 2}
+  bullet: {fileID: 100000, guid: fc31c02e81932da458f3f9be57f84bb5, type: 2}
   speed: 0
   fireDelay: 0
   radius: 0
-  mask: {}
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
   targetEnemy: {fileID: 0}
   selectedEnemy: {fileID: 0}
 --- !u!114 &11400006

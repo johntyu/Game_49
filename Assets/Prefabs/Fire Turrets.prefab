@@ -110,6 +110,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!23 &2300002
 Renderer:
   m_ObjectHideFlags: 1
@@ -122,12 +125,15 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e89d1b26104ae4bd589d21633a748bc6, type: 2}
+  - {fileID: 2100000, guid: c40b54bebf61f774d8d2d5a237e632e4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!23 &2300004
 Renderer:
   m_ObjectHideFlags: 1
@@ -146,6 +152,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -189,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9849133cceef14237aa61c15d7a61ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,12 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5358f5542e145b09f2023941424384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 9440618e7d9ab4e57868589edf4157f0, type: 2}
+  bullet: {fileID: 100000, guid: b0ebab19acfd48445867dbb6a70fd377, type: 2}
   speed: 0
   fireDelay: 0
   radius: 0
-  mask: {}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   targetEnemy: {fileID: 0}
   selectedEnemy: {fileID: 0}
 --- !u!114 &11400006

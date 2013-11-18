@@ -20,6 +20,14 @@ public class BasicUnitMovement : MonoBehaviour {
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		unitManager = GameObject.FindGameObjectWithTag("PlayerUnitManager").GetComponent<UnitManager>();
 	}
+
+	public void startSlow() {
+		moveSpeed = 1.0f;	
+	}
+	
+	public void endSlow() {
+		moveSpeed = 5.0f;	
+	}
 	
 	public void AttackMoveOrder(Vector3 newGoal){
 		stopTimeInc = 0.0f;

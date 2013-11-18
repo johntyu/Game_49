@@ -75,9 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6261adaca790b4d1eb5f5049165cd24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,11 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f00ff33dcf7440e1910a92febcfac43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
   radius: 1.20000005
   bulletDamage: 1
-  mask: {}
-  fire: {fileID: 100000, guid: 542f86e4e34b523499e0f073b1355e1a, type: 2}
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
+  fire: {fileID: 100000, guid: eeea5332a35388744b3bad0408dad859, type: 2}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1175,6 +1173,9 @@ ParticleSystemRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
   m_RenderMode: 0
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
