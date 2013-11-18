@@ -4,13 +4,15 @@ using System.Collections;
 public class ManagerSpecialAttackManager : MonoBehaviour {
 
 	private UnitManager unitManager;
-
+	
+	private bool pressedA;
 	private bool qDown;
 	private bool wDown;
 	private bool eDown;
 	private bool rDown;
 
 	public Texture2D defaultCursor;
+	public Texture2D attackCursor;
 	public Texture2D qCursor;
 	public Texture2D wCursor;
 	public Texture2D eCursor;
@@ -24,7 +26,7 @@ public class ManagerSpecialAttackManager : MonoBehaviour {
 
 		Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
 
-		qDown = wDown = eDown = rDown = false;
+		pressedA = qDown = wDown = eDown = rDown = false;
 	}
 	
 	// Update is called once per frame
@@ -47,8 +49,11 @@ public class ManagerSpecialAttackManager : MonoBehaviour {
 		}
 
 		special = qDown || wDown || eDown || rDown;
-
-		if (qDown) {
+		
+		if (pressedA){
+			Cursor.SetCursor(attackCursor, Vector2.zero, CursorMode.Auto);
+		}
+		else if (qDown) {
 			Cursor.SetCursor(qCursor, Vector2.zero, CursorMode.Auto);
 		}
 		else if (wDown) {
@@ -87,5 +92,9 @@ public class ManagerSpecialAttackManager : MonoBehaviour {
 
 			qDown = wDown = eDown = rDown = false;
 		}
+	}
+	
+	void SwitchAOnOff(bool tmpA){
+		pressedA = tmpA;
 	}
 }
