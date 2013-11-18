@@ -98,4 +98,10 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 		selectedEnemy = enemy;
 		gameObject.SendMessage("EnemyMoveOrder", enemy.transform.position);
 	}
+
+	void setEnemyWhenAttacked(GameObject enemy) {
+		if (selectedEnemy == null && targetEnemy == null) {
+			targetEnemy = enemy;
+		}
+	}
 }
