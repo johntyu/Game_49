@@ -67,8 +67,8 @@ public GameObject bullet;
 			
 		//	instance.SendMessage("setTarget", targetEnemy);
 			if(instance.rigidbody){
-				
-				if(gameObject.name == "EnemyUnit") {
+				instance.SendMessage("setTarget", targetEnemy);
+				/*if(gameObject.name == "EnemyUnit") {
 					//instance.rigidbody.AddForce((targetEnemy.transform.position - transform.position).normalized * speed / 100.0f, ForceMode.VelocityChange);
 				
 					instance.SendMessage("setTarget", targetEnemy);
@@ -81,7 +81,7 @@ public GameObject bullet;
 					instance.rigidbody.AddForce((targetEnemy.transform.position - transform.position).normalized * speed / 50.0f, ForceMode.VelocityChange);
 				
 				//	instance.rigidbody.AddForce((targetEnemy.transform.position - transform.position).normalized * speed / 100.0f, ForceMode.VelocityChange);
-				}
+				}*/
 			}
 		}
 		

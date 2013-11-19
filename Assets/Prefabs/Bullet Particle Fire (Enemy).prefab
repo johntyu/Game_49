@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400006}
+  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: Bullet Particle Fire (Enemy)
   m_TagString: Untagged
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fa5b375b5f199b4eae6a1ce233e0d6f, type: 3}
   m_Name: 
@@ -103,6 +104,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   fire: {fileID: 100000, guid: eeea5332a35388744b3bad0408dad859, type: 2}
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc1e79561d7b1c43aff0b3bf550a2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: .5
+  bulletDamage: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
+  fire: {fileID: 100002, guid: 42b387be1a60144b7a19aa2b642af788, type: 2}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

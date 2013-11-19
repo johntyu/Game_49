@@ -5,7 +5,7 @@ public class UnitHealth : MonoBehaviour {
 	
 	public float curHealth = 20.0f;
 	public float maxHealth = 20.0f;
-	
+	public bool IsImmune;
 	private UnitManager unitManager;
 	
 	// Use this for initialization
@@ -23,5 +23,20 @@ public class UnitHealth : MonoBehaviour {
 	
 	void BulletCollision(float damage){
 		curHealth -= damage;
+	}
+
+	
+	public void setImmune(bool inImmune) {
+		IsImmune = inImmune;
+	}
+	
+	
+	void HealUnit(float healpoints) {
+		curHealth += healpoints;
+		
+		if(curHealth > maxHealth) {
+			curHealth = maxHealth;
+		}
+
 	}
 }
