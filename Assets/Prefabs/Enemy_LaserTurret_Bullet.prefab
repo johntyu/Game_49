@@ -11,13 +11,11 @@ GameObject:
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400004}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400006}
-  - 114: {fileID: 11400008}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
-  m_Name: Bullet Particle Homing (Enemy)
+  m_Name: Enemy_LaserTurret_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,21 +55,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa5b375b5f199b4eae6a1ce233e0d6f, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ca3ce8c3c5d4e71a0bee9780c899e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: .200000003
   bulletDamage: 5
-  mask:
-    serializedVersion: 2
-    m_Bits: 512
+  mask: {}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6261adaca790b4d1eb5f5049165cd24e, type: 3}
   m_Name: 
@@ -84,37 +80,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb28c7617000244bb832f710f85d93f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a78161d9e3606847939ec50e28595b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d0899c3ba5b54dc1b8c6341dd6972a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 0
-  theTarget: {fileID: 0}
-  lastLoc: {x: 0, y: 0, z: 0}
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70ad46c4cb191964e8308c61b1369e7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 0
-  theTarget: {fileID: 0}
-  lastLoc: {x: 0, y: 0, z: 0}
+  radius: .200000003
+  bulletDamage: 5
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -289,7 +262,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4279762688
+        rgba: 4278190335
       minMaxState: 0
     startSize:
       scalar: .400000006
