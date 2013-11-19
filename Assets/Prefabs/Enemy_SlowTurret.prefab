@@ -30,7 +30,6 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400008}
-  - 114: {fileID: 11400004}
   m_Layer: 8
   m_Name: Enemy_SlowTurret
   m_TagString: Untagged
@@ -226,29 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c9cfc6916302f48bceb1d119fb7387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc5fa954060b14cc8a9d3fe2ab4f7c48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 0557a501b9f03194b9e1a6d9cc2339ca, type: 2}
-  speed: 0
-  fireDelay: 0
-  radius: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 512
-  targetEnemy: {fileID: 0}
-  selectedEnemy: {fileID: 0}
-  isLockdown: 0
-  lockdownStart: 0
-  lockdownEnd: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

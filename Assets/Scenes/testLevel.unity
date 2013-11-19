@@ -3321,7 +3321,8 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400004, guid: a50e0b9dcde35d847bfd0ccf3c846cee, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a50e0b9dcde35d847bfd0ccf3c846cee, type: 2}
   m_RootGameObject: {fileID: 1963031128}
   m_IsPrefabParent: 0
@@ -3402,7 +3403,8 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 5f2cb67f8d9265542a244ce829cccf7b, type: 2}
   m_RootGameObject: {fileID: 1422068316}
   m_IsPrefabParent: 0
@@ -3743,7 +3745,8 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 877bdd829d1a2b64b814864ab9f5d419, type: 2}
   m_RootGameObject: {fileID: 1263423345}
   m_IsPrefabParent: 0
@@ -5586,7 +5589,6 @@ GameObject:
   - 114: {fileID: 1263423349}
   - 114: {fileID: 1263423348}
   - 114: {fileID: 1263423353}
-  - 114: {fileID: 1263423347}
   m_Layer: 8
   m_Name: Enemy_SlowTurret
   m_TagString: Untagged
@@ -5607,18 +5609,6 @@ Transform:
   - {fileID: 235929221}
   - {fileID: 1176068593}
   m_Father: {fileID: 1757866288}
---- !u!114 &1263423347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 877bdd829d1a2b64b814864ab9f5d419,
-    type: 2}
-  m_PrefabInternal: {fileID: 862220615}
-  m_GameObject: {fileID: 1263423345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc5fa954060b14cc8a9d3fe2ab4f7c48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1263423348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6233,7 +6223,6 @@ GameObject:
   - 114: {fileID: 1422068320}
   - 114: {fileID: 1422068319}
   - 114: {fileID: 1422068324}
-  - 114: {fileID: 1422068318}
   m_Layer: 8
   m_Name: Enemy_HomingTurret
   m_TagString: Untagged
@@ -6254,18 +6243,6 @@ Transform:
   - {fileID: 1014582805}
   - {fileID: 171503587}
   m_Father: {fileID: 1757866288}
---- !u!114 &1422068318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 5f2cb67f8d9265542a244ce829cccf7b,
-    type: 2}
-  m_PrefabInternal: {fileID: 799813745}
-  m_GameObject: {fileID: 1422068316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f20e8ebbdf373491cb9cb58610564f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1422068319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8139,7 +8116,6 @@ GameObject:
   - 114: {fileID: 1963031132}
   - 114: {fileID: 1963031131}
   - 114: {fileID: 1963031136}
-  - 114: {fileID: 1963031130}
   m_Layer: 8
   m_Name: Enemy_LaserTurret
   m_TagString: Untagged
@@ -8160,18 +8136,6 @@ Transform:
   - {fileID: 496515163}
   - {fileID: 1916054996}
   m_Father: {fileID: 1757866288}
---- !u!114 &1963031130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: a50e0b9dcde35d847bfd0ccf3c846cee,
-    type: 2}
-  m_PrefabInternal: {fileID: 779987888}
-  m_GameObject: {fileID: 1963031128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0566d8a78524ea28fcd4c009076232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1963031131
 MonoBehaviour:
   m_ObjectHideFlags: 0
