@@ -13,9 +13,9 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400008}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400006}
-  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: Enemy_FireTurret_Bullet
   m_TagString: Untagged
@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Bits: 512
 --- !u!114 &11400002
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &11400006
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
