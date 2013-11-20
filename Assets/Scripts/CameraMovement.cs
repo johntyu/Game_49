@@ -49,8 +49,8 @@ public class CameraMovement : MonoBehaviour
 		}
 		if (Input.GetAxis("Mouse ScrollWheel") < 0){
 			transform.position = new Vector3(transform.position.x, transform.position.y + 100*Time.deltaTime, transform.position.z);
-			if(transform.position.y > 40.0f){
-				transform.position = new Vector3(transform.position.x, 40.0f, transform.position.z);
+			if(transform.position.y > 60.0f){
+				transform.position = new Vector3(transform.position.x, 60.0f, transform.position.z);
 			}
 	    }
 	    if (Input.GetAxis("Mouse ScrollWheel") > 0){

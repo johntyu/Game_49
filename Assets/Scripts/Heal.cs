@@ -8,6 +8,9 @@ public class Heal : MonoBehaviour {
 	public GameObject targetAlly;
 	public bool Healer;
 	public float healAmount;
+
+	private float coolDownEnd = 2.0f;
+	private float coolDownStart = 0.0f;
 	
 	public bool Recaller;
 	void Start () {
@@ -20,6 +23,7 @@ public class Heal : MonoBehaviour {
 	void Update () {
 		getHeal();
 		doHeal();
+		coolDownStart += Time.deltaTime;
 	}
 	
 	
@@ -29,10 +33,13 @@ public class Heal : MonoBehaviour {
 			Healer = false;
 			Collider[] healArray = Physics.OverlapSphere(transform.position, radius, mask);
 			
-			if(healArray.Length > 0) {
-				for(int i = 0; i < healArray.Length; i++) {			
-					targetAlly = healArray[i].gameObject;
-					targetAlly.SendMessage("HealUnit", healAmount);	
+			if(coolDownStart > coolDownEnd){
+				coolDownStart = 0.0f;
+				if(healArray.Length > 0) {
+					for(int i = 0; i < healArray.Length; i++) {			
+						targetAlly = healArray[i].gameObject;
+						targetAlly.SendMessage("HealUnit", healAmount);	
+					}
 				}
 			}		
 		}

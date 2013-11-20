@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400008}
+  - 114: {fileID: 11400004}
   m_Layer: 8
   m_Name: Enemy_SlowTurret
   m_TagString: Untagged
@@ -126,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.5, y: 1, z: .699999988}
+  m_LocalPosition: {x: -.5, y: 1.5, z: .699999988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -163,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: .699999988}
+  m_LocalPosition: {x: 0, y: 1.5, z: .699999988}
   m_LocalScale: {x: 1, y: .0199999996, z: .199999958}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -353,6 +354,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c9cfc6916302f48bceb1d119fb7387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35bc76d29dc5e44889e1177c3ac39cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowStartTime: 0
+  fireStartTime: 0
+  FireDamage: .200000003
+  effectType: 
+  target: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

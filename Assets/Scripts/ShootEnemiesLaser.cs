@@ -13,7 +13,11 @@ public class ShootEnemiesLaser : MonoBehaviour {
 	public GameObject selectedEnemy;
 	private bool enemySelectedWithClick;
 	private float fireTime;
-	
+
+	public bool isLockdown;
+	public float lockdownStart;
+	public float lockdownEnd;
+
 	void Start () {
 		speed = 500.0f;
 		fireDelay = 4.0f;
@@ -61,7 +65,7 @@ public class ShootEnemiesLaser : MonoBehaviour {
 		}
 		
 		//fire bullet at enemy every fireDelay seconds
-		if(targetEnemy != null && fireTime > fireDelay){
+		if(targetEnemy != null && fireTime > fireDelay && !isLockdown){
 			fireTime = 0.0f;
 			GameObject instance = Instantiate(bullet, transform.position, bullet.transform.rotation) as GameObject;
 			
@@ -94,5 +98,21 @@ public class ShootEnemiesLaser : MonoBehaviour {
 	void SetSelectedEnemyWithClick(GameObject enemy){
 		selectedEnemy = enemy;
 		gameObject.SendMessage("EnemyMoveOrder", enemy.transform.position);
+	}
+
+	public void setLockdown(bool inLock) {
+		isLockdown = true;
+		lockdownStart = 0.0f;
+	}
+	
+	public void maintainLockdown() {
+		if(isLockdown == true) {
+			lockdownStart += Time.deltaTime;
+			
+			if(lockdownStart > lockdownEnd) {
+				isLockdown = false;
+				lockdownStart = 0.0f;
+			}
+		}
 	}
 }
