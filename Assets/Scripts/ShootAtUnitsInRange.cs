@@ -27,6 +27,9 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 	}
 	
 	void Update () {
+		if(gameObject.layer == 10) {
+			return;
+		}
 		fireTime += Time.deltaTime;
 		
 		//get array of all enemies in range
@@ -124,6 +127,16 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 				lockdownStart = 0.0f;
 			}
 		}
+	}
+
+	public void setMaskToEnemy() {
+		if(gameObject.layer == 9) {
+			return;
+		}
+		Debug.Log("OldLayer: " + gameObject.layer);
+		gameObject.layer = 9;
+		Debug.Log("NewLayer: " + gameObject.layer);
+		Debug.Log("Mask :" + mask);
 	}
 
 }

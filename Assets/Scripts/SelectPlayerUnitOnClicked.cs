@@ -16,6 +16,9 @@ public class SelectPlayerUnitOnClicked : MonoBehaviour {
 	}
 	
 	void Clicked(){
+		if(gameObject.layer == 10) {
+			return;
+		}
 		if(doubleClickStart < 0.3f){
 			DoubleClicked();
 		}else{
