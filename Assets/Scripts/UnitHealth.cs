@@ -30,7 +30,6 @@ public class UnitHealth : MonoBehaviour {
 		IsImmune = inImmune;
 	}
 	
-	
 	void HealUnit(float healpoints) {
 		curHealth += healpoints;
 		

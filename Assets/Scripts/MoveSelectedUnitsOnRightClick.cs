@@ -10,9 +10,16 @@ public class MoveSelectedUnitsOnRightClick : MonoBehaviour {
 	}
 	
 	void RightClicked(Vector3 clickPosition){
-		clickPosition.y = 0.0f;
-		foreach(GameObject unit in unitManager.GetSelectedUnits()){
-			unit.SendMessage("MoveOrder", clickPosition, SendMessageOptions.DontRequireReceiver);	
+		if(transform.gameObject.layer == 10){	
+			foreach(GameObject unit in unitManager.GetSelectedUnits()){	
+				unit.SendMessage("AttackMoveOrder",
+				                 new Vector3(clickPosition.x, clickPosition.y - 80.0f, clickPosition.z),
+				                 SendMessageOptions.DontRequireReceiver);
+			}
+		}else{
+			foreach(GameObject unit in unitManager.GetSelectedUnits()){
+				unit.SendMessage("MoveOrder", clickPosition, SendMessageOptions.DontRequireReceiver);
+			}
 		}
 	}
 	

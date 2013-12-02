@@ -6,9 +6,10 @@ TagManager:
   - PlayerUnitManager
   - ClickParticle
   - Selector
-  - AttackMoveIndicator
-  - AttackMoveIndicatorManager
   - Soldier
+  - ResourceManager
+  - AttackMoveIndicator
+  - FactoryInterface
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Enemies
   User Layer 9: Friendlies
-  User Layer 10: 
+  User Layer 10: MiniMap
   User Layer 11: 
   User Layer 12: 
   User Layer 13: 
@@ -42,3 +43,8 @@ TagManager:
   User Layer 29: 
   User Layer 30: 
   User Layer 31: 
+  m_SortingLayers:
+  - name: Default
+    userID: 0
+    uniqueID: 0
+    locked: 0

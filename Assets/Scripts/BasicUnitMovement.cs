@@ -5,7 +5,8 @@ public class BasicUnitMovement : MonoBehaviour {
 	
 	private NavMeshAgent navMeshAgent;
 	private UnitManager unitManager;
-	
+
+	public float defaultSpeed = 5.0f;
 	public float moveSpeed = 5.0f;
 	public bool attackMoveOrder = false;
 	public bool attacking = false;
@@ -16,37 +17,51 @@ public class BasicUnitMovement : MonoBehaviour {
 	private float stopTime = 1.0f;
 	private bool foundGoal = true;
 
+	//
+	public float changeDirectionPerMinute = 30.0f;
+	private float changeDirectionTime = 0.0f;
+	private Vector3 randomPoint;
+
 	void Start(){
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		unitManager = GameObject.FindGameObjectWithTag("PlayerUnitManager").GetComponent<UnitManager>();
+
+		//
+		randomPoint = transform.position + new Vector3(Random.value * 100, 0.0f, Random.value * 100);
 	}
 
 	public void startSlow() {
-		moveSpeed = 1.0f;	
+		moveSpeed = defaultSpeed / 5.0f;	
 	}
 	
 	public void endSlow() {
-		moveSpeed = 5.0f;	
+		moveSpeed = defaultSpeed;	
 	}
 	
 	public void AttackMoveOrder(Vector3 newGoal){
 		stopTimeInc = 0.0f;
-		currentGoal = newGoal;
+		stopTime = (newGoal - transform.position).magnitude / 4.0f;
+		int numUnits = unitManager.getNumSelectedUnits();
+		float r = Mathf.Sqrt(numUnits) * 2.0f;
+		currentGoal = newGoal + new Vector3((Random.value * r) - (r / 2.0f), 0.0f, (Random.value * r) - (r / 2.0f));
 		onGoal = false;
 		foundGoal = false;
-		navMeshAgent.SetDestination(newGoal);
+		navMeshAgent.SetDestination(currentGoal);
 		attackMoveOrder = true;
-		gameObject.SendMessage("setEnemySelectedWithClick", false);
+		gameObject.SendMessage("SetEnemySelectedWithClick", false);
 	}
 	
 	public void MoveOrder(Vector3 newGoal){
 		stopTimeInc = 0.0f;
-		currentGoal = newGoal;
+		stopTime = (newGoal - transform.position).magnitude / 4.0f;
+		int numUnits = unitManager.getNumSelectedUnits();
+		float r = Mathf.Sqrt(numUnits) * 2.0f;
+		currentGoal = newGoal + new Vector3((Random.value * r) - (r / 2.0f), 0.0f, (Random.value * r) - (r / 2.0f));
 		onGoal = false;
 		foundGoal = false;
-		navMeshAgent.SetDestination(newGoal);
+		navMeshAgent.SetDestination(currentGoal);
 		attackMoveOrder = false;
-		gameObject.SendMessage("setEnemySelectedWithClick", false);
+		gameObject.SendMessage("SetEnemySelectedWithClick", false);
 	}
 	
 	public void EnemyMoveOrder(Vector3 newGoal){
@@ -54,41 +69,83 @@ public class BasicUnitMovement : MonoBehaviour {
 		currentGoal = newGoal;
 		onGoal = false;
 		foundGoal = false;
-		navMeshAgent.SetDestination(newGoal);
-		attackMoveOrder = false;
-		gameObject.SendMessage("setEnemySelectedWithClick", true);
+		navMeshAgent.SetDestination(currentGoal);
+		attackMoveOrder = true;
+		gameObject.SendMessage("SetEnemySelectedWithClick", true);
 	}
 	
 	public void StopMoveOrder(){
-		currentGoal = transform.position;
+		//currentGoal = transform.position;
 		onGoal = true;
-		navMeshAgent.SetDestination(transform.position);
+		navMeshAgent.ResetPath();
 		attackMoveOrder = false;
 	}
 	
-	void FixedUpdate(){
-		
-		if(navMeshAgent.hasPath && !foundGoal){
-			foundGoal = true;
-			stopTime = navMeshAgent.remainingDistance / 3.0f;
+	void Update(){
+
+		GameObject targetEnemy;
+		GameObject selectedEnemy;
+		bool enemySelectedWithClick;
+		bool commanderEnemy;
+		if(gameObject.GetComponent<ShootAtUnitsInRange>() == null){
+			targetEnemy = transform.GetComponent<MeleeAttackUnitsInRange>().targetEnemy;
+			enemySelectedWithClick = transform.GetComponent<MeleeAttackUnitsInRange>().enemySelectedWithClick;
+		}else{
+	 		targetEnemy = transform.GetComponent<ShootAtUnitsInRange>().targetEnemy;
+			enemySelectedWithClick = transform.GetComponent<ShootAtUnitsInRange>().enemySelectedWithClick;
 		}
-		
-		GameObject targetEnemy = transform.GetComponent<ShootAtUnitsInRange>().targetEnemy;
 		if(targetEnemy != null){
 			attacking = true;
 		}else{
 			attacking = false;
 		}
-			
+
+		if(enemySelectedWithClick){
+			if(gameObject.GetComponent<ShootAtUnitsInRange>() == null){
+				selectedEnemy = transform.GetComponent<MeleeAttackUnitsInRange>().selectedEnemy;
+				commanderEnemy = transform.GetComponent<MeleeAttackUnitsInRange>().commandeerEnemy;
+			}else{
+				selectedEnemy = transform.GetComponent<ShootAtUnitsInRange>().selectedEnemy;
+				commanderEnemy = transform.GetComponent<ShootAtUnitsInRange>().commandeerEnemy;
+			}
+			if(selectedEnemy != null){
+				if(selectedEnemy.transform.position != currentGoal){
+					EnemyMoveOrder(selectedEnemy.transform.position);
+				}
+			}
+		}
+		
+		int numUnits = unitManager.getNumSelectedUnits();
+		float r = Mathf.Sqrt(numUnits) * 2.0f;
+		if(navMeshAgent.hasPath && !foundGoal){
+			if((navMeshAgent.remainingDistance / 4.0f) > stopTime){
+				stopTime = navMeshAgent.remainingDistance / 4.0f;
+				stopTimeInc = 0.0f;
+			}
+		}
+
 		if(attacking && attackMoveOrder){
 			navMeshAgent.speed = 0;
 		}else{
 			navMeshAgent.speed = moveSpeed;
-			stopTimeInc += Time.fixedDeltaTime;
+			stopTimeInc += Time.deltaTime;
 		}
-		
+
 		if(stopTimeInc > stopTime){
-			//StopMoveOrder();
+			StopMoveOrder();
+		}
+
+		//
+		changeDirectionTime += Time.deltaTime;
+		if(onGoal){
+			transform.position += (randomPoint - transform.position).normalized * moveSpeed/16.0f * Time.deltaTime;
+
+			int numUnits2 = unitManager.getNumSelectedUnits();
+			float r2 = Mathf.Sqrt(numUnits) * 2.0f;
+			if(changeDirectionTime >= (60.0f / changeDirectionPerMinute)){
+				changeDirectionTime = 0.0f;
+				randomPoint = currentGoal + new Vector3((Random.value * r2) - (r2 / 2.0f), 0.0f, (Random.value * r2) - (r2 / 2.0f));
+			}
 		}
 	}
 	

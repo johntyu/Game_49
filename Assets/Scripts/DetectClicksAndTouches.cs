@@ -18,7 +18,13 @@ public class DetectClicksAndTouches : MonoBehaviour
 	
 	//This is the actual camera we reference in the update loop, set in Start()
 	private Camera _camera;
-	
+
+	public Vector3 clickLoc;
+
+	void OnDrawGizmos() {
+		Gizmos.DrawWireSphere(clickLoc, 2f);
+	}
+
 	void Start()
 	{
 		if(detectionCamera != null)
@@ -89,6 +95,8 @@ public class DetectClicksAndTouches : MonoBehaviour
 					{
 						Debug.Log("You right clicked " + hit.collider.gameObject.name,hit.collider.gameObject);
 					}
+
+					clickLoc = hit.point;
 					
 					//Run the Clicked() function on the clicked object
 					hit.transform.gameObject.SendMessage("RightClicked", hit.point, SendMessageOptions.DontRequireReceiver);

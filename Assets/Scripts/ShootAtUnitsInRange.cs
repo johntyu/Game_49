@@ -11,7 +11,8 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 	
 	public GameObject targetEnemy;
 	public GameObject selectedEnemy;
-	private bool enemySelectedWithClick;
+	public bool commandeerEnemy;
+	public bool enemySelectedWithClick;
 	private float fireTime;
 
 	public bool isLockdown;
@@ -21,9 +22,9 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 
 	void Start () {
 		speed = 500.0f;
-		fireDelay = 1.0f;
+		//fireDelay = 1.0f;
 		fireTime = 0.0f;
-		radius = 5.0f;
+		//radius = 5.0f;
 	}
 	
 	void Update () {
@@ -43,12 +44,14 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 			//if selected enemy in range, fire at him and stop moving
 			if(enemy.gameObject == selectedEnemy){
 				targetEnemy = selectedEnemy;
-				selectedEnemy = null;
-				enemySelectedWithClick = false;
-				gameObject.SendMessage("StopMoveOrder");
+				enemyInRange = true;
 			}
 		}
-		
+
+		if(selectedEnemy == null){
+			enemySelectedWithClick = false;
+		}
+
 		//if enemy is out of range, stop firing
 		if(!enemyInRange){
 			targetEnemy = null;
@@ -95,12 +98,18 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 		}		
 	}
 	
-	void setEnemySelectedWithClick(bool a){
+	void SetEnemySelectedWithClick(bool a){
 		enemySelectedWithClick = a;
 	}
 	
 	void SetSelectedEnemyWithClick(GameObject enemy){
 		selectedEnemy = enemy;
+		gameObject.SendMessage("EnemyMoveOrder", enemy.transform.position);
+	}
+
+	void CommandeerVehicle(GameObject enemy){
+		selectedEnemy = enemy;
+		commandeerEnemy = true;
 		gameObject.SendMessage("EnemyMoveOrder", enemy.transform.position);
 	}
 

@@ -655,7 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: 1d18a7eb461f88447b52f4d506a51335, type: 2}
   speed: 2000
-  fireDelay: 1
+  fireDelay: .5
   radius: 5
   mask:
     serializedVersion: 2

@@ -12,7 +12,9 @@ public class CameraMovement : MonoBehaviour
 	private Rect recUp;
 	private Rect recLeft;
 	private Rect recRight;
-	
+
+	private CreateSelectionBox selectionBox;
+
 	void Start () {
 		GUIhSize = Screen.height * GUIregion;
 		GUIwSize = Screen.width * GUIregion;
@@ -21,6 +23,8 @@ public class CameraMovement : MonoBehaviour
 		recUp    = new Rect(0, Screen.height-GUIhSize, Screen.width, GUIhSize);
 		recLeft  = new Rect(0, 0, GUIwSize, Screen.height);
 		recRight = new Rect(Screen.width-GUIwSize, 0, GUIwSize, Screen.height);
+
+		selectionBox = gameObject.GetComponent<CreateSelectionBox>();
 	}
 	
 	void Update () {
@@ -44,7 +48,7 @@ public class CameraMovement : MonoBehaviour
 			towards.x = 1;
 		}
 
-		if (towards.x != 0 || towards.z != 0) {
+		if ((towards.x != 0 || towards.z != 0) && !selectionBox.selecting) {
 			transform.Translate(towards.normalized * camSpeed * Time.deltaTime, Space.World);
 		}
 		if (Input.GetAxis("Mouse ScrollWheel") < 0){

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SlowEnemyOnCollision : MonoBehaviour {
 	
 	public float radius = 3.2f;
-	public float bulletDamage = 1.0f;
+	public float bulletDamage = 0.0f;
 	public LayerMask mask;
 	public float aoeRadius;
 	private GameObject targetEnemy;
@@ -15,7 +15,7 @@ public class SlowEnemyOnCollision : MonoBehaviour {
 	float curTime = 0.0f;
 	
 	void Start () {
-		radius = 3.2f;
+		radius = 1.0f;
 	    destroyTime = 6.0f;
 		curTime = 0.0f;
 	}
