@@ -10,6 +10,11 @@ public class UnitHealth : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+
+		if (gameObject.transform.name == "Friendly_Infecter") {
+			curHealth = 100.0f;
+			maxHealth = 100.0f;
+		}
 		unitManager = GameObject.FindGameObjectWithTag("PlayerUnitManager").GetComponent<UnitManager>();
 	}
 	

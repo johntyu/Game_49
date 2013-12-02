@@ -21,8 +21,8 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 
 	void Start () {
 		speed = 500.0f;
-		fireDelay = 1.0f;
-		fireTime = 0.0f;
+		fireDelay = 2.0f;
+		fireTime = 2.1f;
 		radius = 5.0f;
 	}
 	

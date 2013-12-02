@@ -11,7 +11,7 @@ public class SelectPlayerUnitOnTrigger : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter(Collider col){
-		if(gameObject.layer == 10) {
+		if(gameObject.layer != 9) {
 			return;
 		}
 

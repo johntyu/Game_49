@@ -33,7 +33,7 @@ public class BasicInfectBehavior : MonoBehaviour {
 		Collider[] enemyArray =	Physics.OverlapSphere(transform.position, radius, mask);
 
 
-		if(enemyArray.Length > 0) {
+		if(enemyArray.Length >= 3) {
 			infectStartTime += Time.deltaTime;
 			//float lerp = Mathf.PingPong(Time.time, duration) / duration;
 			float lerp = infectEndTime - infectStartTime;
@@ -44,7 +44,7 @@ public class BasicInfectBehavior : MonoBehaviour {
 			}
 
 		}
-		else if(enemyArray.Length == 0) {
+		else if(enemyArray.Length < 3) {
 			if(infectStartTime > 0) {
 				infectStartTime -= Time.deltaTime;
 				//float lerp = Mathf.PingPong(Time.time, duration) / duration;
