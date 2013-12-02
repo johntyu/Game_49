@@ -11,10 +11,6 @@ public class SelectPlayerUnitOnTrigger : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter(Collider col){
-		if(gameObject.layer != 9) {
-			return;
-		}
-
 		foreach(string tag in tags){
 			if(col.tag == tag){
 				unitManager.SelectAdditionalUnit(gameObject);
