@@ -30,10 +30,10 @@ GameObject:
   - 54: {fileID: 5400000}
   - 195: {fileID: 19500000}
   - 114: {fileID: 11400014}
-  - 114: {fileID: 11400016}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 8
   m_Name: Enemy_CarRifle
   m_TagString: Untagged
@@ -12563,7 +12563,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -134.283401, y: .5, z: -18.9188004}
+  m_LocalPosition: {x: 24.6604691, y: .5, z: -96.2669067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 401486}
@@ -20728,7 +20728,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101486}
-  m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children:
@@ -40882,6 +40882,20 @@ MonoBehaviour:
   moveSpeed: 7
   attackMoveOrder: 0
   attacking: 0
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba165182f868cd4469e89dfc61b412cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 50
+  maxHealth: 50
+  zombieUnit: {fileID: 100002, guid: ee5a1a566b89a4c40b91dbea3c643335, type: 2}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40914,7 +40928,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2f76014920860b45984ee387ee7ddf7, type: 3}
   m_Name: 
@@ -40950,26 +40964,6 @@ MonoBehaviour:
   FireDamage: .200000003
   effectType: 
   target: {fileID: 0}
---- !u!114 &11400016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f607b3e55790849cd8e09c6716843974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 512
-  infectStartTime: 0
-  infectEndTime: 0
-  colorStart: {r: 0, g: 0, b: 0, a: 0}
-  colorEnd: {r: 0, g: 0, b: 0, a: 0}
-  duration: 0
-  radius: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

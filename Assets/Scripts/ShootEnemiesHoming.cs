@@ -66,15 +66,14 @@ public GameObject bullet;
 		}
 		
 		//fire bullet at enemy every fireDelay seconds
-		if(targetEnemy != null) {
-			if(fireTime > fireDelay && !isLockdown){
-				fireTime = 0.0f;
-				GameObject instance = Instantiate(bullet, transform.position, bullet.transform.rotation) as GameObject;
+		if(targetEnemy != null && fireTime > fireDelay && !isLockdown){
+			fireTime = 0.0f;
+			GameObject instance = Instantiate(bullet, transform.position, bullet.transform.rotation) as GameObject;
 			
-			//	instance.SendMessage("setTarget", targetEnemy);
-				if(instance.rigidbody){
-					instance.SendMessage("setTarget", targetEnemy);
-					/*if(gameObject.name == "EnemyUnit") {
+		//	instance.SendMessage("setTarget", targetEnemy);
+			if(instance.rigidbody){
+				instance.SendMessage("setTarget", targetEnemy);
+				/*if(gameObject.name == "EnemyUnit") {
 					//instance.rigidbody.AddForce((targetEnemy.transform.position - transform.position).normalized * speed / 100.0f, ForceMode.VelocityChange);
 				
 					instance.SendMessage("setTarget", targetEnemy);
@@ -88,27 +87,6 @@ public GameObject bullet;
 				
 				//	instance.rigidbody.AddForce((targetEnemy.transform.position - transform.position).normalized * speed / 100.0f, ForceMode.VelocityChange);
 				}*/
-				}
-			}
-
-			//get turret model as a game object
-			GameObject turret = null;
-			foreach (Transform child in transform.GetComponentsInChildren<Transform>()) {
-				if(child.name == "turret5"){
-					turret = child.gameObject;
-				}
-			}
-			
-			//rotate turret model to look at where it is firing
-			float rotationVal = Vector3.Angle(new Vector3(0.0f, 0.0f, 1.0f), (targetEnemy.transform.position - transform.position));
-			if(targetEnemy.transform.position.x < transform.position.x){
-				if(turret != null){
-					turret.transform.rotation = Quaternion.Euler(0, -1*(rotationVal + 90.0f), 0);
-				}
-			}else{
-				if(turret != null){
-					turret.transform.rotation = Quaternion.Euler(0, (rotationVal - 90.0f), 0);
-				}
 			}
 		}
 		

@@ -6,9 +6,6 @@ public class HumanCivilianAI : MonoBehaviour {
 	public float moveSpeed = 3.0f;
 	public float changeDirectionPerMinute = 10.0f;
 
-	public float worldRadiusX = 150.0f;
-	public float worldRadiusZ = 25.0f;
-
 	private float changeDirectionTime = 0.0f;
 	private Vector3 randomPoint;
 
@@ -19,10 +16,7 @@ public class HumanCivilianAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		randomPoint = new Vector3(
-			Random.value * worldRadiusX * 2 - worldRadiusX, 
-			0.0f, 
-			Random.value * worldRadiusZ * 2 - worldRadiusZ);
+		randomPoint = transform.position + new Vector3(Random.value * 100 - 50.0f, 0.0f, Random.value * 100 - 50.0f);
 	}
 	
 	// Update is called once per frame
@@ -61,10 +55,7 @@ public class HumanCivilianAI : MonoBehaviour {
 		changeDirectionTime += Time.deltaTime;
 		if(changeDirectionTime >= (60.0f / changeDirectionPerMinute)){
 			changeDirectionTime = 0.0f;
-			randomPoint = new Vector3(
-				Random.value * worldRadiusX * 2 - worldRadiusX, 
-				0.0f, 
-				Random.value * worldRadiusZ * 2 - worldRadiusZ);
+			randomPoint = transform.position + new Vector3(Random.value * 100 - 50.0f, 0.0f, Random.value * 100 - 50.0f);
 		}
 	}
 }

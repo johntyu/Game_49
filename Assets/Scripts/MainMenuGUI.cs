@@ -12,7 +12,7 @@ public class MainMenuGUI : MonoBehaviour {
 		float XStart = Screen.width / 32.0f;
 
 		if (GUI.Button (new Rect (XStart,YStart + buttonHDif*0,buttonW,buttonH), "Start Game")) {
-			Application.LoadLevel("testLevel");
+			Application.LoadLevel("islandLevel2");
 		}
 		if( GUI.Button (new Rect (XStart,YStart + buttonHDif*1,buttonW,buttonH), "Instructions")) {
 			//Application.LoadLevel("instructions");

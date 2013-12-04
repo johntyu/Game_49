@@ -95,7 +95,8 @@ public class ShootAtUnitsInRange : MonoBehaviour {
 					turret.transform.rotation = Quaternion.Euler(0, rotationVal, 0);
 				}
 			}
-		}		
+		}
+
 	}
 	
 	void SetEnemySelectedWithClick(bool a){

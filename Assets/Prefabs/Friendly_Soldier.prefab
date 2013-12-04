@@ -166,7 +166,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 529ae9c78216ddb4bbe10ed0f02595ba, type: 2}
+  - {fileID: 2100000, guid: cdfb60ffbb9f24de8b0ed6cea85fe909, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -304,9 +304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99304f318862e6e46b0679602adb8ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  defaultSpeed: 10
+  moveSpeed: 10
   attackMoveOrder: 0
   attacking: 0
+  changeDirectionPerMinute: 30
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,13 +333,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: b853f12ba24498747a270dc9e9ad656e, type: 2}
   speed: 500
-  fireDelay: 1
+  fireDelay: .5
   radius: 5
   mask:
     serializedVersion: 2
     m_Bits: 256
   targetEnemy: {fileID: 0}
   selectedEnemy: {fileID: 0}
+  commandeerEnemy: 0
   enemySelectedWithClick: 0
   isLockdown: 0
   lockdownStart: 0
@@ -353,8 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575b15b21a216544f9c32a04bd6aa42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 30
-  maxHealth: 30
+  curHealth: 40
+  maxHealth: 40
   IsImmune: 0
 --- !u!114 &11400012
 MonoBehaviour:
@@ -428,8 +431,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_Radius: .500000119
-  m_Speed: 5
-  m_Acceleration: 25
+  m_Speed: 10
+  m_Acceleration: 1e+06
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 0

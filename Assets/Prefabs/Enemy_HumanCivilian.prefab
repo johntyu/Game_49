@@ -327,10 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1cdc18383a45d428ae4eca5c2b57d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   changeDirectionPerMinute: 10
-  worldRadiusX: 150
-  worldRadiusZ: 25
   radius: 10
   mask:
     serializedVersion: 2

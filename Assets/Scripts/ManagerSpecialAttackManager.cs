@@ -31,21 +31,21 @@ public class ManagerSpecialAttackManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!qDown && Input.GetKeyDown(KeyCode.Q)) {
-			qDown = wDown = eDown = rDown = false;
-			qDown = true;
+		if (Input.GetKeyDown(KeyCode.Q)) {
+			wDown = eDown = rDown = false;
+			qDown = !qDown;
 		}
-		else if (!wDown && Input.GetKeyDown(KeyCode.W)) {
-			qDown = wDown = eDown = rDown = false;
-			wDown = true;
+		else if (Input.GetKeyDown(KeyCode.W)) {
+			qDown = eDown = rDown = false;
+			wDown = !wDown;
 		}
-		else if (!eDown && Input.GetKeyDown(KeyCode.E)) {
-			qDown = wDown = eDown = rDown = false;
-			eDown = true;
+		else if (Input.GetKeyDown(KeyCode.E)) {
+			qDown = wDown = rDown = false;
+			eDown = !eDown;
 		}
-		else if (!rDown && Input.GetKeyDown(KeyCode.R)) {
-			qDown = wDown = eDown = rDown = false;
-			rDown = true;
+		else if (Input.GetKeyDown(KeyCode.R)) {
+			qDown = wDown = eDown = false;
+			rDown = !rDown;
 		}
 
 		special = qDown || wDown || eDown || rDown;
@@ -76,17 +76,19 @@ public class ManagerSpecialAttackManager : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0)) {
 			foreach(GameObject unit in unitManager.GetSelectedUnits()){
-				if (qDown) {
-					unit.SendMessage("SpecialAttack_Q", SendMessageOptions.DontRequireReceiver);
-				}
-				else if (wDown) {
-					unit.SendMessage("SpecialAttack_W", SendMessageOptions.DontRequireReceiver);
-				}
-				else if (eDown) {
-					unit.SendMessage("SpecialAttack_E", SendMessageOptions.DontRequireReceiver);
-				}
-				else if (rDown) {
-					unit.SendMessage("SpecialAttack_R", SendMessageOptions.DontRequireReceiver);
+				if(unit != null){
+					if (qDown) {
+						unit.SendMessage("SpecialAttack_Q", SendMessageOptions.DontRequireReceiver);
+					}
+					else if (wDown) {
+						unit.SendMessage("SpecialAttack_W", SendMessageOptions.DontRequireReceiver);
+					}
+					else if (eDown) {
+						unit.SendMessage("SpecialAttack_E", SendMessageOptions.DontRequireReceiver);
+					}
+					else if (rDown) {
+						unit.SendMessage("SpecialAttack_R", SendMessageOptions.DontRequireReceiver);
+					}
 				}
 			}
 

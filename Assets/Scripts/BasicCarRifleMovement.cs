@@ -94,11 +94,11 @@ public class BasicCarRifleMovement : MonoBehaviour {
 		float rotationVal = Vector3.Angle(new Vector3(0.0f, 0.0f, 1.0f), (currentGoal - transform.position));
 		if(currentGoal.x < transform.position.x){
 			if(car != null){
-				car.transform.rotation = Quaternion.Euler(0, -1*rotationVal, 0);
+				car.transform.rotation = Quaternion.Euler(270.0f, -1*rotationVal, 0);
 			}
 		}else{
 			if(car != null){
-				car.transform.rotation = Quaternion.Euler(0, rotationVal, 0);
+				car.transform.rotation = Quaternion.Euler(270.0f, rotationVal, 0);
 			}
 		}
 		
