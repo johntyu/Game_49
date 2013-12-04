@@ -21,6 +21,9 @@ public class DetectClicksAndTouches : MonoBehaviour
 
 	public Vector3 clickLoc;
 
+	private LayerMask ignoreFogs;
+	public int fogLayer;
+
 	void OnDrawGizmos() {
 		Gizmos.DrawWireSphere(clickLoc, 2f);
 	}
@@ -35,6 +38,9 @@ public class DetectClicksAndTouches : MonoBehaviour
 		{
 			_camera = Camera.main;
 		}
+
+		ignoreFogs = 1 << fogLayer;
+		ignoreFogs = ~ignoreFogs;
 	}
 	
 	// Update is called once per frame
@@ -51,7 +57,7 @@ public class DetectClicksAndTouches : MonoBehaviour
 				{
 					ray = _camera.ScreenPointToRay(touch.position);
 					
-					if(Physics.Raycast(ray, out hit, Mathf.Infinity))
+					if(Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreFogs))
 					{
 						if(debug)
 						{
@@ -70,7 +76,7 @@ public class DetectClicksAndTouches : MonoBehaviour
 				ray = _camera.ScreenPointToRay(Input.mousePosition); 
 				
 				//If we hit...
-				if(Physics.Raycast (ray, out hit, Mathf.Infinity))
+				if(Physics.Raycast (ray, out hit, Mathf.Infinity, ignoreFogs))
 				{
 					//Tell the system what we clicked something if in debug
 					if(debug)
@@ -88,7 +94,7 @@ public class DetectClicksAndTouches : MonoBehaviour
 				ray = _camera.ScreenPointToRay(Input.mousePosition); 
 				
 				//If we hit...
-				if(Physics.Raycast (ray, out hit, Mathf.Infinity))
+				if(Physics.Raycast (ray, out hit, Mathf.Infinity, ignoreFogs))
 				{
 					//Tell the system what we clicked something if in debug
 					if(debug)
