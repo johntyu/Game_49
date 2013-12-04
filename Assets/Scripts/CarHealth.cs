@@ -21,8 +21,9 @@ public class CarHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(curHealth <= 0.0f){
-			//unitManager.DeselectUnit(gameObject);
-			//Object.Destroy(gameObject);
+			unitManager.DeselectUnit(gameObject);
+			gameObject.SendMessage("UnloadAll", SendMessageOptions.DontRequireReceiver);
+			Object.Destroy(gameObject);
 		}
 
 

@@ -17,6 +17,9 @@ public class UnitHealth : MonoBehaviour {
 	void Update () {
 		if(curHealth <= 0.0f){
 			unitManager.DeselectUnit(gameObject);
+			if(gameObject.name.Contains("Friendly")){
+				unitManager.RemoveUnit();
+			}
 			Object.Destroy(gameObject);
 		}
 	}

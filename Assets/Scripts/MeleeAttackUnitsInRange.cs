@@ -18,7 +18,10 @@ public class MeleeAttackUnitsInRange : MonoBehaviour {
 	public float lockdownStart;
 	public float lockdownEnd;
 
+	private UnitManager unitManager;
+
 	void Start () {
+		unitManager = GameObject.FindGameObjectWithTag("PlayerUnitManager").GetComponent<UnitManager>();
 		fireTime = 0.0f;
 	}
 	
@@ -92,6 +95,7 @@ public class MeleeAttackUnitsInRange : MonoBehaviour {
 		if(commandeerEnemy && selectedEnemy != null){
 			if(Vector3.Distance(selectedEnemy.transform.position, gameObject.transform.position) < 1.0f){
 				selectedEnemy.SendMessage("UnitAddedToVehicle", SendMessageOptions.DontRequireReceiver);
+				unitManager.DeselectUnit(gameObject);
 				GameObject.Destroy(gameObject);
 			}
 		}

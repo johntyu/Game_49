@@ -17,6 +17,12 @@ public class CarAbilities : MonoBehaviour {
 
 	}
 
+	void UnloadAll(){
+		for(int i = 0; i < 10; i++){
+			Instantiate(friendlyAttacker, transform.position, friendlyAttacker.transform.rotation);
+		}
+	}
+
 	void SpecialAttack_R(){
 		for(int i = 0; i < 10; i++){
 			Instantiate(friendlyAttacker, transform.position, friendlyAttacker.transform.rotation);

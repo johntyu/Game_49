@@ -10,6 +10,9 @@ public class UnitManager : MonoBehaviour {
 	public List<GameObject> savedUnitsThree;
 	public List<GameObject> savedUnitsFour;
 	public List<GameObject> savedUnitsFive;
+
+	public int numUnitsAllowed = 200;
+	public int currentUnits = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -128,5 +131,17 @@ public class UnitManager : MonoBehaviour {
 		}else{
 			return false;
 		}
+	}
+
+	public void AddUnit(){
+		currentUnits++;
+	}
+
+	public void RemoveUnit(){
+		currentUnits--;
+	}
+
+	public int NumUnits(){
+		return currentUnits;
 	}
 }

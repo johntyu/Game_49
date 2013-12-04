@@ -32,13 +32,17 @@ public class AttackMoveUnitsOnAClick : MonoBehaviour {
 			unitManager.DeselectAllUnits();
 		}else if(pressedA && unitManager.UnitsAreSelected() && gameObject.layer == 10){
 			foreach(GameObject unit in unitManager.GetSelectedUnits()){
-				unit.SendMessage("AttackMoveOrder", 
+				if(unit != null){
+					unit.SendMessage("AttackMoveOrder", 
 				                 new Vector3(clickPosition.x, clickPosition.y - 80.0f, clickPosition.z),
-				                 SendMessageOptions.DontRequireReceiver);	
+				                 SendMessageOptions.DontRequireReceiver);
+				}
 			}
 		}else if(pressedA && unitManager.UnitsAreSelected()){
 			foreach(GameObject unit in unitManager.GetSelectedUnits()){
-				unit.SendMessage("AttackMoveOrder", clickPosition, SendMessageOptions.DontRequireReceiver);	
+				if(unit != null){
+					unit.SendMessage("AttackMoveOrder", clickPosition, SendMessageOptions.DontRequireReceiver);	
+				}
 			}
 		}else if(gameObject.layer == 10){
 			newCamPos = new Vector3(

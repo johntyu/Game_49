@@ -42,7 +42,7 @@ public class BasicUnitMovement : MonoBehaviour {
 		stopTimeInc = 0.0f;
 		stopTime = (newGoal - transform.position).magnitude / 4.0f;
 		int numUnits = unitManager.getNumSelectedUnits();
-		float r = Mathf.Sqrt(numUnits) * 2.0f;
+		float r = Mathf.Sqrt(numUnits) * 1.5f;
 		currentGoal = newGoal + new Vector3((Random.value * r) - (r / 2.0f), 0.0f, (Random.value * r) - (r / 2.0f));
 		onGoal = false;
 		foundGoal = false;
@@ -55,7 +55,7 @@ public class BasicUnitMovement : MonoBehaviour {
 		stopTimeInc = 0.0f;
 		stopTime = (newGoal - transform.position).magnitude / 4.0f;
 		int numUnits = unitManager.getNumSelectedUnits();
-		float r = Mathf.Sqrt(numUnits) * 2.0f;
+		float r = Mathf.Sqrt(numUnits) * 1.5f;
 		currentGoal = newGoal + new Vector3((Random.value * r) - (r / 2.0f), 0.0f, (Random.value * r) - (r / 2.0f));
 		onGoal = false;
 		foundGoal = false;
@@ -68,7 +68,7 @@ public class BasicUnitMovement : MonoBehaviour {
 		stopTimeInc = 0.0f;
 		currentGoal = newGoal;
 		onGoal = false;
-		foundGoal = false;	
+		foundGoal = false;
 		navMeshAgent.SetDestination(currentGoal);
 		attackMoveOrder = true;
 		gameObject.SendMessage("SetEnemySelectedWithClick", true, SendMessageOptions.DontRequireReceiver);
@@ -77,20 +77,17 @@ public class BasicUnitMovement : MonoBehaviour {
 	public void StopMoveOrder(){
 		//currentGoal = transform.position;
 		onGoal = true;
+		foundGoal = true;
 		navMeshAgent.ResetPath();
 		attackMoveOrder = false;
 	}
 	
 	void Update(){
 
-		if(navMeshAgent.hasPath && !foundGoal){
-			foundGoal = true;
-		}
-
 		GameObject targetEnemy = null;
 		GameObject selectedEnemy = null;
 		bool enemySelectedWithClick = false;
-		bool commanderEnemy = false;
+		bool commandeerEnemy = false;
 		if(gameObject.GetComponent<MeleeAttackUnitsInRange>() != null){
 			targetEnemy = transform.GetComponent<MeleeAttackUnitsInRange>().targetEnemy;
 			enemySelectedWithClick = transform.GetComponent<MeleeAttackUnitsInRange>().enemySelectedWithClick;
@@ -107,10 +104,10 @@ public class BasicUnitMovement : MonoBehaviour {
 		if(enemySelectedWithClick){
 			if(gameObject.GetComponent<MeleeAttackUnitsInRange>() != null){
 				selectedEnemy = transform.GetComponent<MeleeAttackUnitsInRange>().selectedEnemy;
-				commanderEnemy = transform.GetComponent<MeleeAttackUnitsInRange>().commandeerEnemy;
+				commandeerEnemy = transform.GetComponent<MeleeAttackUnitsInRange>().commandeerEnemy;
 			}else if(gameObject.GetComponent<ShootAtUnitsInRange>() != null){
 				selectedEnemy = transform.GetComponent<ShootAtUnitsInRange>().selectedEnemy;
-				commanderEnemy = transform.GetComponent<ShootAtUnitsInRange>().commandeerEnemy;
+				commandeerEnemy = transform.GetComponent<ShootAtUnitsInRange>().commandeerEnemy;
 			}
 			if(selectedEnemy != null){
 				if(selectedEnemy.transform.position != currentGoal){

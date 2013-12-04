@@ -7,6 +7,7 @@ using System.Collections;
 public class CarShootRifle : MonoBehaviour {
 
 	public GameObject sparks;
+	public float bulletDamage = 5.0f;
 	public float speed;
 	public float fireDelay;
 	public float radius;
@@ -81,7 +82,7 @@ public class CarShootRifle : MonoBehaviour {
 		if(targetEnemy != null){
 			if (fireTime > fireDelay && !isLockdown) {
 				fireTime = 0.0f;
-				targetEnemy.SendMessage("BulletCollision", 3);
+				targetEnemy.SendMessage("BulletCollision", bulletDamage);
 				GameObject instance = Instantiate(sparks, targetEnemy.transform.position, targetEnemy.transform.rotation) as GameObject;
 
 			}

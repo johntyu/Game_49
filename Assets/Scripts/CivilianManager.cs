@@ -4,7 +4,7 @@ using System.Collections;
 public class CivilianManager : MonoBehaviour {
 
 	public int totalCiviliansAllowed = 200;
-	private int currentCivilians = 0;
+	public int currentCivilians = 0;
 
 	public void AddCivilian(){
 		currentCivilians++;
