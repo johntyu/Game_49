@@ -5,9 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/mainMenu.unity
-  - enabled: 0
-    path: Assets/Scenes/testLevel.unity
   - enabled: 1
-    path: Assets/Scenes/islandLevel.unity
+    path: Assets/Scenes/mainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/testLevel.unity
