@@ -8,6 +8,8 @@ Build/*
 *.userprefs
 *.sln
 *.csproj
+*.unityproj
+*.booproj
 
 # os stuff
 .DS_Store
