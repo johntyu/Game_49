@@ -1,0 +1,226 @@
+fileFormatVersion: 2
+guid: 0af21d6696299504b9db54800af318b4
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Componente_4
+    100002: Componente_4 1
+    100004: Componente_4 2
+    100006: Componente_4 3
+    100008: Componente_5
+    100010: ID101
+    100012: ID109
+    100014: ID115
+    100016: ID121
+    100018: ID129
+    100020: ID135
+    100022: ID14
+    100024: ID14 1
+    100026: ID14 2
+    100028: ID14 3
+    100030: ID141
+    100032: ID147
+    100034: ID153
+    100036: ID161
+    100038: ID167
+    100040: ID175
+    100042: ID20
+    100044: ID20 1
+    100046: ID20 2
+    100048: ID20 3
+    100050: ID39
+    100052: ID47
+    100054: ID55
+    100056: ID63
+    100058: ID73
+    100060: ID81
+    100062: ID89
+    100064: ID95
+    100066: instance_0
+    100068: instance_1
+    100070: instance_2
+    100072: instance_3
+    100074: instance_4
+    100076: //RootNode
+    400000: Componente_4
+    400002: Componente_4 1
+    400004: Componente_4 2
+    400006: Componente_4 3
+    400008: Componente_5
+    400010: ID101
+    400012: ID109
+    400014: ID115
+    400016: ID121
+    400018: ID129
+    400020: ID135
+    400022: ID14
+    400024: ID14 1
+    400026: ID14 2
+    400028: ID14 3
+    400030: ID141
+    400032: ID147
+    400034: ID153
+    400036: ID161
+    400038: ID167
+    400040: ID175
+    400042: ID20
+    400044: ID20 1
+    400046: ID20 2
+    400048: ID20 3
+    400050: ID39
+    400052: ID47
+    400054: ID55
+    400056: ID63
+    400058: ID73
+    400060: ID81
+    400062: ID89
+    400064: ID95
+    400066: instance_0
+    400068: instance_1
+    400070: instance_2
+    400072: instance_3
+    400074: instance_4
+    400076: //RootNode
+    2300000: Componente_4
+    2300002: Componente_4 1
+    2300004: Componente_4 2
+    2300006: Componente_4 3
+    2300008: Componente_5
+    2300010: ID101
+    2300012: ID109
+    2300014: ID115
+    2300016: ID121
+    2300018: ID129
+    2300020: ID135
+    2300022: ID14
+    2300024: ID14 1
+    2300026: ID14 2
+    2300028: ID14 3
+    2300030: ID141
+    2300032: ID147
+    2300034: ID153
+    2300036: ID161
+    2300038: ID167
+    2300040: ID175
+    2300042: ID20
+    2300044: ID20 1
+    2300046: ID20 2
+    2300048: ID20 3
+    2300050: ID39
+    2300052: ID47
+    2300054: ID55
+    2300056: ID63
+    2300058: ID73
+    2300060: ID81
+    2300062: ID89
+    2300064: ID95
+    3300000: Componente_4
+    3300002: Componente_4 1
+    3300004: Componente_4 2
+    3300006: Componente_4 3
+    3300008: Componente_5
+    3300010: ID101
+    3300012: ID109
+    3300014: ID115
+    3300016: ID121
+    3300018: ID129
+    3300020: ID135
+    3300022: ID14
+    3300024: ID14 1
+    3300026: ID14 2
+    3300028: ID14 3
+    3300030: ID141
+    3300032: ID147
+    3300034: ID153
+    3300036: ID161
+    3300038: ID167
+    3300040: ID175
+    3300042: ID20
+    3300044: ID20 1
+    3300046: ID20 2
+    3300048: ID20 3
+    3300050: ID39
+    3300052: ID47
+    3300054: ID55
+    3300056: ID63
+    3300058: ID73
+    3300060: ID81
+    3300062: ID89
+    3300064: ID95
+    4300000: Componente_5
+    4300002: ID39
+    4300004: ID47
+    4300006: ID55
+    4300008: ID63
+    4300010: ID73
+    4300012: ID81
+    4300014: ID89
+    4300016: ID95
+    4300018: ID101
+    4300020: ID109
+    4300022: ID115
+    4300024: ID121
+    4300026: ID129
+    4300028: ID135
+    4300030: ID141
+    4300032: ID147
+    4300034: ID153
+    4300036: ID161
+    4300038: ID167
+    4300040: ID175
+    4300042: Componente_4
+    4300044: ID14
+    4300046: ID20
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 
